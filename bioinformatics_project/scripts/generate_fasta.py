@@ -17,16 +17,14 @@ def DNA_sequence(bp):
     eighty_bps = [] 
     for i in range(0, len(join_seq), 80):
         eighty_bps.append(join_seq[i:i + 80])
-        formatted_seq = '\n'.join(eighty_bps)
-        return formatted_seq
-
-
+    formatted_seq = '\n'.join(eighty_bps)
+    return formatted_seq
 
 #Saving seqeuence in FASTA format to file "random_sequence.fasta": 
 
 final_seq = DNA_sequence(1000000)
 
-directory = 'bioinformatics_project/data/random_sequence.fasta'
+directory = '/Users/MuskaanSandhu/05-first-exam-muskaansandhu/bioinformatics_project/data'
 if not os.path.exists(directory):
     os.makedirs(directory) 
 
