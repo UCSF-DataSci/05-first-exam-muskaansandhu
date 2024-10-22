@@ -7,7 +7,6 @@
 #Importing needed libraries: 
 
 import random 
-import os
 
 #Creating function to generate random DNA sequence and formatting it: 
 
@@ -24,11 +23,9 @@ def DNA_sequence(bp):
 
 final_seq = DNA_sequence(1000000)
 
-directory = '/Users/MuskaanSandhu/05-first-exam-muskaansandhu/bioinformatics_project/data'
-if not os.path.exists(directory):
-    os.makedirs(directory) 
+directory = '/Users/MuskaanSandhu/05-first-exam-muskaansandhu/bioinformatics_project/data/random_sequence.fasta'
 
-with open(os.path.join(directory, 'random_sequence.fasta'), 'w') as fasta_file:
+with open(directory, 'w') as fasta_file:
     fasta_file.write(final_seq)
 
 print("Random DNA sequence generated and saved to bioinformatics_project/data/random_sequence.fasta")
