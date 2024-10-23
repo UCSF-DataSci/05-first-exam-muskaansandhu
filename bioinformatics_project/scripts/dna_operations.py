@@ -17,7 +17,7 @@ import argparse
 #2) Implementing functions: 
 
 def complement(sequence): 
-    complement_dict = {
+    complement_dict = {  #Creates a complement dictionary which matches each base pair to its complement. Includes lower and upper case letters for case sensitivity. 
         'A' : 'T', 
         'T' : 'A', 
         'G' : 'C', 
@@ -27,29 +27,29 @@ def complement(sequence):
         'c' : 'g', 
         'g' : 'c'
     }
-    complement_seq = ''
+    complement_seq = '' #Creating empty string 
     for bp in sequence: 
-        complement_seq += complement_dict[bp]
-    return complement_seq
+        complement_seq += complement_dict[bp] #Indexes each base pair for the seqeence input and returns the complement base pair to the empty string created above. 
+    return complement_seq #Final complement sequence 
 
 def reverse(sequence):
-    return sequence[::-1]
+    return sequence[::-1] #Using string slicing w/ step of -1 to return reverse. 
 
 def reverse_complement(sequence): 
-    return reverse(complement(sequence))
+    return reverse(complement(sequence)) #Using functions made above to get the complement and reverse of a sequence (in that order). 
 
 
 #1 + 3) Accepting DNA sequence as command line argument and printing results from all three functions: 
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
-    parser.add_argument("sequence", type=str, help="DNA sequence")
+    parser.add_argument("sequence", type=str, help="DNA sequence") #Specifiying sequence as a command line argument 
     args = parser.parse_args()
 
-    print("Original sequence:", args.sequence)
-    print("Complement:", complement(args.sequence))
-    print("Reverse:", reverse(args.sequence))
-    print("Reverse complement:", reverse_complement(args.sequence))
+    print("Original sequence:", args.sequence) #Will print out command line sequence 
+    print("Complement:", complement(args.sequence)) #Will print out complement of command line sequence 
+    print("Reverse:", reverse(args.sequence)) #Will print out reverse of command line sequence 
+    print("Reverse complement:", reverse_complement(args.sequence)) #Will print out reverse complement of line sequence 
 
 
 
